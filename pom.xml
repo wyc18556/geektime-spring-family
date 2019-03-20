@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.1.1.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>geektime.spring</groupId>
+	<artifactId>spring-family</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>demo</name>
+
+	<properties>
+		<java.version>1.8</java.version>
+	</properties>
+
+	<modules>
+	    <!--chapter_1 -->
+        <module>Chapter 1/helloworld</module>
+		<!--chapter_2 -->
+        <module>Chapter 2/datasource-demo</module>
+        <module>Chapter 2/declarative-transaction-demo</module>
+        <module>Chapter 2/druid-demo</module>
+        <module>Chapter 2/errorcode-demo</module>
+        <module>Chapter 2/multi-datasource-demo</module>
+        <module>Chapter 2/programmatic-transaction-demo</module>
+        <module>Chapter 2/pure-spring-datasource-demo</module>
+        <module>Chapter 2/simple-jdbc-demo</module>
+		<!--chapter_3 -->
+        <module>Chapter 3/jpa-complex-demo</module>
+        <module>Chapter 3/jpa-demo</module>
+        <module>Chapter 3/mybatis-demo</module>
+        <module>Chapter 3/mybatis-generator-demo</module>
+        <module>Chapter 3/mybatis-pagehelper-demo</module>
+        <module>Chapter 3/springbucks</module>
+		<!--chapter_4 -->
+        <module>Chapter 4/cache-demo</module>
+        <module>Chapter 4/cache-with-redis-demo</module>
+        <module>Chapter 4/jedis-demo</module>
+        <module>Chapter 4/mongo-demo</module>
+        <module>Chapter 4/mongo-repository-demo</module>
+        <module>Chapter 4/redis-demo</module>
+        <module>Chapter 4/redis-repository-demo</module>
+		<!--chapter_5 -->
+		<module>Chapter 5/mongodb-demo</module>
+		<module>Chapter 5/performance-aspect-demo</module>
+		<module>Chapter 5/r2dbc-repository-demo</module>
+		<module>Chapter 5/reactive-springbucks</module>
+		<module>Chapter 5/redis-demo</module>
+		<module>Chapter 5/simple-r2dbc-demo</module>
+		<module>Chapter 5/simple-reactor-demo</module>
+		<!--chapter_6 -->
+		<module>Chapter 6/cache-demo</module>
+		<module>Chapter 6/complex-controller-demo</module>
+		<module>Chapter 6/context-hierarchy-demo</module>
+		<module>Chapter 6/exception-demo</module>
+		<module>Chapter 6/json-view-demo</module>
+		<module>Chapter 6/more-complex-controller-demo</module>
+		<module>Chapter 6/simple-controller-demo</module>
+		<module>Chapter 6/springbucks</module>
+		<module>Chapter 6/thymeleaf-view-demo</module>
+    </modules>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis.spring.boot</groupId>
+			<artifactId>mybatis-spring-boot-starter</artifactId>
+			<version>1.3.2</version>
+		</dependency>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.joda</groupId>
+			<artifactId>joda-money</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
