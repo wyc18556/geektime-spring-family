@@ -8,8 +8,8 @@
 		<version>0.0.1-SNAPSHOT</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<artifactId>druid-demo</artifactId>
-	<name>druid-demo</name>
+	<artifactId>druid-demo-c2</artifactId>
+	<name>druid-demo-c2</name>
 	<description>Demo project for Spring Boot</description>
 
 	<dependencies>

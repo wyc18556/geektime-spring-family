@@ -19,9 +19,9 @@
 	</properties>
 
 	<modules>
-	    <!--chapter_1 -->
+	    <!-- chapter_1 -->
         <module>Chapter 1/helloworld</module>
-		<!--chapter_2 -->
+		<!-- chapter_2 -->
         <module>Chapter 2/datasource-demo</module>
         <module>Chapter 2/declarative-transaction-demo</module>
         <module>Chapter 2/druid-demo</module>
@@ -30,14 +30,14 @@
         <module>Chapter 2/programmatic-transaction-demo</module>
         <module>Chapter 2/pure-spring-datasource-demo</module>
         <module>Chapter 2/simple-jdbc-demo</module>
-		<!--chapter_3 -->
+		<!-- chapter_3 -->
         <module>Chapter 3/jpa-complex-demo</module>
         <module>Chapter 3/jpa-demo</module>
         <module>Chapter 3/mybatis-demo</module>
         <module>Chapter 3/mybatis-generator-demo</module>
         <module>Chapter 3/mybatis-pagehelper-demo</module>
         <module>Chapter 3/springbucks</module>
-		<!--chapter_4 -->
+		<!-- chapter_4 -->
         <module>Chapter 4/cache-demo</module>
         <module>Chapter 4/cache-with-redis-demo</module>
         <module>Chapter 4/jedis-demo</module>
@@ -45,7 +45,7 @@
         <module>Chapter 4/mongo-repository-demo</module>
         <module>Chapter 4/redis-demo</module>
         <module>Chapter 4/redis-repository-demo</module>
-		<!--chapter_5 -->
+		<!-- chapter_5 -->
 		<module>Chapter 5/mongodb-demo</module>
 		<module>Chapter 5/performance-aspect-demo</module>
 		<module>Chapter 5/r2dbc-repository-demo</module>
@@ -53,7 +53,7 @@
 		<module>Chapter 5/redis-demo</module>
 		<module>Chapter 5/simple-r2dbc-demo</module>
 		<module>Chapter 5/simple-reactor-demo</module>
-		<!--chapter_6 -->
+		<!-- chapter_6 -->
 		<module>Chapter 6/cache-demo</module>
 		<module>Chapter 6/complex-controller-demo</module>
 		<module>Chapter 6/context-hierarchy-demo</module>
@@ -63,6 +63,9 @@
 		<module>Chapter 6/simple-controller-demo</module>
 		<module>Chapter 6/springbucks</module>
 		<module>Chapter 6/thymeleaf-view-demo</module>
+		<!-- FAQ -->
+		<module>FAQ 2019-02/druid-demo</module>
+		<module>FAQ 2019-02/transaction-propagation-demo</module>
     </modules>
 
 	<dependencies>
