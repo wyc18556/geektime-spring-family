@@ -1,6 +1,8 @@
 package geektime.spring.springbucks;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import geektime.spring.springbucks.model.Coffee;
+import geektime.spring.springbucks.model.Person;
 import geektime.spring.springbucks.service.CoffeeService;
 import io.lettuce.core.ReadFrom;
 import lombok.extern.slf4j.Slf4j;
@@ -14,9 +16,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
+import org.springframework.data.redis.serializer.StringRedisSerializer;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import java.net.UnknownHostException;
 import java.util.Optional;
 
 @Slf4j
@@ -32,10 +35,23 @@ public class SpringBucksApplication implements ApplicationRunner {
 	}
 
 	@Bean
-	public RedisTemplate<String, Coffee> redisTemplate(RedisConnectionFactory redisConnectionFactory) {
+	public RedisTemplate<String, Coffee> coffeeRedisTemplate(RedisConnectionFactory redisConnectionFactory) {
 		RedisTemplate<String, Coffee> template = new RedisTemplate<>();
 		template.setConnectionFactory(redisConnectionFactory);
+		template.setKeySerializer(new StringRedisSerializer());
+		template.setValueSerializer(new Jackson2JsonRedisSerializer<>(Coffee.class));
 		return template;
+	}
+
+	@Bean
+	public RedisTemplate<String, Person> personRedisTemplate(RedisConnectionFactory redisConnectionFactory){
+		RedisTemplate<String, Person> personRedisTemplate = new RedisTemplate<>();
+		personRedisTemplate.setConnectionFactory(redisConnectionFactory);
+		personRedisTemplate.setKeySerializer(new StringRedisSerializer());
+		personRedisTemplate.setValueSerializer(new Jackson2JsonRedisSerializer<>(Person.class));
+		personRedisTemplate.setHashKeySerializer(new StringRedisSerializer());
+		personRedisTemplate.setHashValueSerializer(new Jackson2JsonRedisSerializer<>(Person.class));
+		return personRedisTemplate;
 	}
 
 	@Bean
@@ -45,14 +61,15 @@ public class SpringBucksApplication implements ApplicationRunner {
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-		Optional<Coffee> c = coffeeService.findOneCoffee("mocha");
-		log.info("Coffee {}", c);
-
-		for (int i = 0; i < 5; i++) {
-			c = coffeeService.findOneCoffee("mocha");
-		}
-
-		log.info("Value from Redis: {}", c);
+		log.info("服务启动成功>>>>>>>>>");
+//		Optional<Coffee> c = coffeeService.findOneCoffee("mocha");
+//		log.info("Coffee {}", c);
+//
+//		for (int i = 0; i < 5; i++) {
+//			c = coffeeService.findOneCoffee("mocha");
+//		}
+//
+//		log.info("Value from Redis: {}", c);
 	}
 }
 

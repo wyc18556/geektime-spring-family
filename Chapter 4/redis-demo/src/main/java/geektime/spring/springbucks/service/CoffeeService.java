@@ -23,15 +23,15 @@ public class CoffeeService {
     @Autowired
     private CoffeeRepository coffeeRepository;
     @Autowired
-    private RedisTemplate<String, Coffee> redisTemplate;
+    private RedisTemplate<String, Coffee> coffeeRedisTemplate;
 
     public List<Coffee> findAllCoffee() {
         return coffeeRepository.findAll();
     }
 
     public Optional<Coffee> findOneCoffee(String name) {
-        HashOperations<String, String, Coffee> hashOperations = redisTemplate.opsForHash();
-        if (redisTemplate.hasKey(CACHE) && hashOperations.hasKey(CACHE, name)) {
+        HashOperations<String, String, Coffee> hashOperations = coffeeRedisTemplate.opsForHash();
+        if (coffeeRedisTemplate.hasKey(CACHE) && hashOperations.hasKey(CACHE, name)) {
             log.info("Get coffee {} from Redis.", name);
             return Optional.of(hashOperations.get(CACHE, name));
         }
@@ -43,7 +43,7 @@ public class CoffeeService {
         if (coffee.isPresent()) {
             log.info("Put coffee {} to Redis.", name);
             hashOperations.put(CACHE, name, coffee.get());
-            redisTemplate.expire(CACHE, 1, TimeUnit.MINUTES);
+            coffeeRedisTemplate.expire(CACHE, 1, TimeUnit.MINUTES);
         }
         return coffee;
     }
