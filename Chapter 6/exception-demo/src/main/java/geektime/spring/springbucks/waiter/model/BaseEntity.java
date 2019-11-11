@@ -13,7 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @MappedSuperclass
 @Data
@@ -27,7 +27,7 @@ public class BaseEntity implements Serializable {
     private Long id;
     @Column(updatable = false)
     @CreationTimestamp
-    private Date createTime;
+    private LocalDateTime createTime;
     @UpdateTimestamp
-    private Date updateTime;
+    private LocalDateTime updateTime;
 }
